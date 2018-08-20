@@ -1,5 +1,6 @@
 (function() {
-    let score = document.querySelector('#score');
+    let points = 0;
+    let score = document.querySelector('#score .scoreVal');
     let playground = document.querySelector('#playground');
     let cookieTemplate = document.querySelector('#template');
     let cookieWidth = cookieTemplate.offsetWidth;
@@ -27,7 +28,7 @@
             { top: `${startY}` },
             { top: `${endY}` },
         ], {
-                duration: 2000,
+                duration: 3000,
                 delay: 100 * num,
                 iterations: Infinity,
             }
@@ -50,9 +51,12 @@
     }
 
     function onClick(e, num) {
+        console.log(e);
         let cookie = e.target;
 
         // Updates the score.
+        points++;
+        score.innerHTML = points;
 
         // Effectively resets the cookie's animation.
         cookie.finish();
