@@ -35,7 +35,7 @@
     // Generate a new cookie and add it to the DOM.
     function genCookie() {
         let cookie = document.createElement('div');
-        cookie.classList.add('template');
+        cookie.classList.add('cookie');
         content.appendChild(cookie);
         return cookie;
     }
@@ -142,7 +142,7 @@
     function gameOver() {
         content.classList.add("game-over");
 
-        let cookies = document.querySelectorAll('.template');
+        let cookies = document.querySelectorAll('.cookie');
         if (cookies.length > 1) {
             for (let i = 0; i < cookies.length; i++) {
                 cookies[i].remove();
@@ -161,12 +161,12 @@
     function draw(timestamp) {
         if (!start) start = timestamp;
         let progress = timestamp - start;
-        let templates = document.querySelectorAll('.template');
-        for (let i = 0; i < templates.length; i++) {
-            if (!templates[i].classList.contains('animate') && templates[i].offsetTop === startY) {
-                animateAfterTimeout(templates[i], getRandTimeout());
-            } else if (templates[i].offsetTop === endY) {
-                templates[i].classList.remove('animate');
+        let cookies = document.querySelectorAll('.cookie');
+        for (let i = 0; i < cookies.length; i++) {
+            if (!cookies[i].classList.contains('animate') && cookies[i].offsetTop === startY) {
+                animateAfterTimeout(cookies[i], getRandTimeout());
+            } else if (cookies[i].offsetTop === endY) {
+                cookies[i].classList.remove('animate');
                 decreaseScore();
             }
 
