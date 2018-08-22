@@ -9,6 +9,7 @@
     let timeEl = document.querySelector("#timeVal");
     let content = document.querySelector("#playground");
 
+    // Starts the game.
     function startGame() {
         // Resets the game.
         content.classList.remove("game-over");
@@ -139,6 +140,7 @@
         quantumCookie();
     }
 
+    // Ends the game.
     function gameOver() {
         content.classList.add("game-over");
 
@@ -158,6 +160,7 @@
         }, 2000);
     }
 
+    // Runs per frame of the game.
     function draw(timestamp) {
         if (!start) start = timestamp;
         let progress = timestamp - start;
